@@ -1,4 +1,5 @@
-import os
+from os import getenv
+
 
 class BaseConfig:
-    SECRET_KEY = os.environ.get('SECRET_KEY')
+    SECRET_KEY = getenv('SECRET_KEY')
