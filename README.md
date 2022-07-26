@@ -1,1 +1,1 @@
-Practique JWT and clean architecture.
+Practice JWT and clean architecture.
