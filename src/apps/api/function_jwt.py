@@ -5,16 +5,16 @@ from datetime import datetime, timedelta
 from flask import jsonify
 
 
-def expire_date(days: int) -> int:
+def expire_date(hours: int) -> int:
     now_date = datetime.now()
-    expire_date = now_date - timedelta(days)
+    expire_date = now_date + timedelta(hours=hours)
 
     return expire_date
 
 
-def write_token(data: dict):
+def write_token(data: dict, hours_expire=24):
     token = encode(
-        payload={**data, 'exp': expire_date(1)},
+        payload={**data, 'exp': expire_date(hours=hours_expire)},
         key=getenv('SECRET_KEY'),
         algorithm='HS256'
     )
