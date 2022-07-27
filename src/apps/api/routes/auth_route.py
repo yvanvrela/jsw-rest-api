@@ -1,5 +1,5 @@
 from flask import Blueprint, jsonify, request
-from ..function_jwt import validate_token, write_token
+from ..middlewares.jwt_function import validate_token, write_token
 
 auth = Blueprint('api_auth', __name__, url_prefix='/api/auth')
 
@@ -18,3 +18,4 @@ def login():
 def verify():
     token = request.headers['Authorization'].split(" ")[1]
     return validate_token(token, output=True)
+
